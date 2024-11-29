@@ -24,7 +24,7 @@ public:
     void guardarPedidosEnArchivo();
     void cargarLibros();
     void cargarUsuarios();
-    void cargarPedidos();
+    //void cargarPedidos();
 };
 
 #endif

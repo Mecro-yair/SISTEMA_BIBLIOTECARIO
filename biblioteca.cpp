@@ -5,7 +5,7 @@
 Biblioteca::Biblioteca() {
     cargarLibros();
     cargarUsuarios();
-    cargarPedidos();
+    //cargarPedidos();
 }
 
 
@@ -28,7 +28,7 @@ void Biblioteca::cargarLibros() {
 void Biblioteca::cargarUsuarios() {
     ifstream archivo("usuarios.txt");
     if (archivo.is_open()) {
-        int id;
+        string id;
         string nombre, email;
         while (archivo >> id >> nombre >> email) {
         	
@@ -36,5 +36,5 @@ void Biblioteca::cargarUsuarios() {
         }
         archivo.close();
     }
-}
+} 
 
