@@ -5,7 +5,7 @@
 Biblioteca::Biblioteca() {
     cargarLibros();
     cargarUsuarios();
-
+    //cargarPedidos();
 }
 
 
@@ -36,7 +36,7 @@ void Biblioteca::cargarUsuarios() {
         }
         archivo.close();
     }
-}
+} 
 
 void Biblioteca::agregarLibro(int id, string titulo, string autor, int anio, int cantidad) {
     libros.push_back(Libro(id, titulo, autor, anio, cantidad));
