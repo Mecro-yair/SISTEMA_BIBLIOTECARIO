@@ -25,3 +25,14 @@ string Libro::llamarAutor(){
     return autor;
 }
 
+int Libro::llamarAnio(){
+    return anio;
+}
+
+int Libro::llamarCantidad(){
+    return cantidad;
+}
+bool Libro::llamarEntregado() {
+    return disponible;  
+}
+

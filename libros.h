@@ -15,12 +15,14 @@ private:
     bool disponible;
 
 public:
-    Libro(int id, string titulo,string autor, int anio, int cantidad);
+    Libro(int id, string titulo, string autor, int anio, int cantidad);
     
 	int llamarId();
     string llamarTitulo();
     string llamarAutor();
-    
+    int llamarAnio();
+    int llamarCantidad();
+    bool llamarEntregado();
 };
 
 

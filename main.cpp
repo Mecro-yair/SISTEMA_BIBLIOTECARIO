@@ -1,9 +1,12 @@
 #include <iostream>
 #include <windows.h>
+#include <fstream>
 #include "libros.h"
+#include "biblioteca.h"
 using namespace std;
 
 int main() {
+    Biblioteca biblioteca;
 	SetConsoleOutputCP(CP_UTF8);
     string nombre, email,dniUser;
     cout << "Ingrese su DNI: "; 
@@ -29,6 +32,7 @@ int main() {
 
     int opcion;
     do {
+    	system("cls");
         cout << "--- Menu ---\n" << endl;
         cout << "1. Añadir libro" << endl;
         cout << "2. Pedir libro" << endl;
@@ -48,6 +52,7 @@ int main() {
                 cout << "Autor: "; getline(cin, autor);
                 cout << "Año de publicación: "; cin >> anio;
                 cout << "Cantidad: "; cin >> cantidad;
+                biblioteca.agregarLibro(id, titulo, autor, anio, cantidad);
                 break;
             }
             case 2: {

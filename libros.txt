@@ -1,0 +1,26 @@
+1 | Don Quijote de la Mancha | Miguel de Cervantes | 1605 | 5 | 1
+2 | Cien años de soledad | Gabriel García Márquez | 1967 | 3 | 1
+3 | Matar a un ruiseñor | Harper Lee | 1960 | 4 | 1
+4 | 1984 | George Orwell | 1949 | 6 | 1
+5 | La sombra del viento | Carlos Ruiz Zafón | 2001 | 7 | 1
+6 | Crónica de una muerte anunciada | Gabriel García Márquez | 1981 | 2 | 1
+7 | El amor en los tiempos del cólera | Gabriel García Márquez | 1985 | 3 | 1
+8 | Fahrenheit 451 | Ray Bradbury | 1953 | 5 | 1
+9 | La casa de los espíritus | Isabel Allende | 1982 | 4 | 1
+10 | El Gran Gatsby | F. Scott Fitzgerald | 1925 | 2 | 1
+11 | Orgullo y prejuicio | Jane Austen | 1813 | 6 | 1
+12 | En busca del tiempo perdido | Marcel Proust | 1913 | 1 | 1
+13 | El retrato de Dorian Gray | Oscar Wilde | 1890 | 3 | 1
+14 | Los miserables | Victor Hugo | 1862 | 7 | 1
+15 | El Aleph | Jorge Luis Borges | 1945 | 4 | 1
+16 | Ulises | James Joyce | 1922 | 2 | 1
+17 | La Odisea | Homero | 800 a.C | 6 | 1
+18 | En el camino | Jack Kerouac | 1957 | 5 | 1
+19 | El príncipe | Nicolás Maquiavelo | 1532 | 4 | 1
+20 | La metáfora | Milan Kundera | 1993 | 3 | 1
+21 | El túnel | Ernesto Sabato | 1948 | 2 | 1
+22 | Rayuela | Julio Cortázar | 1963 | 4 | 1
+23 | La tregua | Mario Benedetti | 1960 | 3 | 1
+24 | La colmena | Camilo José Cela | 1951 | 4 | 1
+25 | El viejo y el mar | Ernest Hemingway | 1952 | 5 | 1
+
