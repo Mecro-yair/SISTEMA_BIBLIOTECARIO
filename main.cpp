@@ -31,7 +31,6 @@ int main() {
     do {
         cout << "--- Menu ---\n" << endl;
         cout << "1. Añadir libro" << endl;
-        cout << "6. Mostrar inventario de libros"<<endl;
         cout << "2. Pedir libro" << endl;
         cout << "3. Entregar libro" << endl;
         cout << "4. Mostrar libros pendientes de entrega" << endl;
@@ -42,7 +41,13 @@ int main() {
             case 1: {
             	system("cls");
             	cout << "AÑADIR UN NUEVO LIBRO\n\n";
-                agregarLibro();
+                int id, anio, cantidad;
+                string titulo, autor;
+                cout << "ID del libro: "; cin >> id;
+                cout << "Título del libro: "; cin.ignore(); getline(cin, titulo);
+                cout << "Autor: "; getline(cin, autor);
+                cout << "Año de publicación: "; cin >> anio;
+                cout << "Cantidad: "; cin >> cantidad;
                 break;
             }
             case 2: {
@@ -66,8 +71,6 @@ int main() {
  				system("cls");
                 cout << "Se retiró exitosamente." << endl;
                 break;
-            case 6:
-            	mostrarLibros();
             default:
  				system("cls");
                 cout << "Opción inválida." << endl;
