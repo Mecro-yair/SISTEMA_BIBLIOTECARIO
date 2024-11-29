@@ -17,11 +17,11 @@ private:
 public:
     Libro(int id, string titulo,string autor, int anio, int cantidad);
     
-	//void agregarLibro();
-	void quitarLibro();
-	//aqui añadiremos las funciones en prototipo que necesitemos
+	int llamarId();
+    string llamarTitulo();
+    string llamarAutor();
+    
 };
 
-void agregarLibro();
-void mostrarLibros();
+
 #endif
