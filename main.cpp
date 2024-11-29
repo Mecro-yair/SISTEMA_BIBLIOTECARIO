@@ -9,8 +9,8 @@ int main() {
     cout << "Ingrese su DNI: "; 
 	cin >> dniUser;
 
-    if(dniUser.size() > 8){
-    	cout << "\nError.El numero supera el tamaño de un DNI.";
+    if(dniUser.size() != 8){
+    	cout << "\nError. No es el tamaño de un DNI.";
     	return 0;
 	}
 	for (char c : dniUser) {

@@ -1,2 +1,8 @@
 *.exe
 *.layout
+*.obj
+*.out
+*.log
+*.dll
+*.o
+*.win

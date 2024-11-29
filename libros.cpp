@@ -1,7 +1,11 @@
 #include "libros.h"
+<<<<<<< HEAD
 #include <fstream>
 #include <iostream>
 using namespace std;
+=======
+
+>>>>>>> 7aa87e912a46a5a268873523c09fdddc264dfa13
 //aqui los metodos de libros.h
 Libro::Libro(int id1, string titulo1,string autor1, int anio1, int cantidad1){
 	id=id1;
