@@ -2,36 +2,36 @@
 #include <algorithm>
 #include <vector>
 
-Usuario::Usuario(int _dni,string _nombre, string _email){
+Usuario::Usuario(string _dni,string _nombre, string _email){
 	dni = _dni;
 	nombre = _nombre;
 	email = _email;
 }
 
-int Usuario::dni(){
+string Usuario::DNI(){
     return dni;
 }
 
-string Usuario::nombre(){
+string Usuario::Nombre(){
     return nombre;
 }
 
-string Usuario::email(){
+string Usuario::Email(){
     return email;
 }
 
 void Usuario::pedirLibro(string idLibro) {
-    librosPedidos.push_back(libroId);
+    librosPedidos.push_back(idLibro);
 }
 
 bool Usuario::tieneLibroPendiente(string idLibro){
-    return find(librosPedidos.begin(), librosPedidos.end(), libroId) != librosPedidos.end();
+    return find(librosPedidos.begin(), librosPedidos.end(), idLibro) != librosPedidos.end();
 }
 
 void Usuario::entregarLibro(string idLibro) {
-    librosPedidos.erase(remove(librosPedidos.begin(), librosPedidos.end(), libroId), librosPedidos.end());
+    librosPedidos.erase(remove(librosPedidos.begin(), librosPedidos.end(), idLibro), librosPedidos.end());
 }
 
-int Usuario::LibrosPedidos(){
+vector<string> Usuario::LibrosPedidos(){
     return librosPedidos;
 }
