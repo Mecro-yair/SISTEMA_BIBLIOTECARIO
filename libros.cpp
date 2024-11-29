@@ -48,3 +48,14 @@ void Libro::reducirCantidad() {
 }
 
 
+int Libro::llamarAnio(){
+    return anio;
+}
+
+int Libro::llamarCantidad(){
+    return cantidad;
+}
+bool Libro::llamarEntregado() {
+    return disponible;  
+}
+

@@ -15,17 +15,14 @@ private:
     bool entregado;
 
 public:
-    Libro(int id, string titulo,string autor, int anio, int cantidad);
+    Libro(int id, string titulo, string autor, int anio, int cantidad);
     
 	int llamarId();
     string llamarTitulo();
     string llamarAutor();
-    int llamarAnio() ;
+    int llamarAnio();
     int llamarCantidad();
-    bool esEntregado();
-    void actualizaEntregado(bool valor);
-    void reducirCantidad();
-    
+    bool llamarEntregado();
 };
 
 
