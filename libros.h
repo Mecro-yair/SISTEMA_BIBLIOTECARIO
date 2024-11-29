@@ -12,7 +12,7 @@ private:
     string autor;
     int anio;
     int cantidad;
-    bool disponible;
+    bool entregado;
 
 public:
     Libro(int id, string titulo,string autor, int anio, int cantidad);
@@ -20,6 +20,11 @@ public:
 	int llamarId();
     string llamarTitulo();
     string llamarAutor();
+    int llamarAnio() ;
+    int llamarCantidad();
+    bool esEntregado();
+    void actualizaEntregado(bool valor);
+    void reducirCantidad();
     
 };
 
