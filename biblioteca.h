@@ -1,7 +1,7 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
 
-#include "libro.h"
+#include "libros.h"
 #include "usuario.h"
 #include <vector>
 #include <string>
@@ -25,8 +25,6 @@ public:
     void cargarLibros();
     void cargarUsuarios();
     void cargarPedidos();
-    Libro* buscarLibroPorId(int id);
-    Usuario* buscarUsuarioPorId(int id);
 };
 
 #endif
