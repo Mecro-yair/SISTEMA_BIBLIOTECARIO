@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include "libros.h"
 using namespace std;
 
 int main() {

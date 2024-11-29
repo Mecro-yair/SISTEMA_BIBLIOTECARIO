@@ -1,3 +1,27 @@
 #include "libros.h"
 
+#include <fstream>
+#include <iostream>
+using namespace std;
+
 //aqui los metodos de libros.h
+Libro::Libro(int id1, string titulo1,string autor1, int anio1, int cantidad1){
+	id=id1;
+    titulo=titulo1;
+    autor=autor1;
+    anio=anio1;
+    cantidad=cantidad1;
+}
+
+int Libro::llamarId(){
+    return id;
+}
+
+string Libro::llamarTitulo() {
+    return titulo;
+}
+
+string Libro::llamarAutor(){
+    return autor;
+}
+
