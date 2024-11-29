@@ -11,7 +11,7 @@ Libro::Libro(int id1, string titulo1,string autor1, int anio1, int cantidad1){
     autor=autor1;
     anio=anio1;
     cantidad=cantidad1;
-    entregado=false;
+	entregado = true;
 }
 
 int Libro::llamarId(){
@@ -33,29 +33,7 @@ int Libro::llamarCantidad(){
     return cantidad;
 }
 
-bool Libro::esEntregado(){
-    return entregado;
-}
-
-void Libro::actualizaEntregado(bool valor) {
-    entregado = valor;
-}
-
-void Libro::reducirCantidad() {
-    if (cantidad > 0) {
-        cantidad--;
-    }
-}
-
-
-int Libro::llamarAnio(){
-    return anio;
-}
-
-int Libro::llamarCantidad(){
-    return cantidad;
-}
 bool Libro::llamarEntregado() {
-    return disponible;  
+    return entregado;  
 }
 
