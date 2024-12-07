@@ -28,11 +28,13 @@ void Biblioteca::cargarLibros() {
 void Biblioteca::cargarUsuarios() {
     ifstream archivo("usuarios.txt");
     if (archivo.is_open()) {
-        string dni;
-        string nombre, email;
-        while (archivo >>  dni >> nombre >> email) {
+        
+        string dni, nombre, email;
+        int edad;
+        char sexo;
+        while (archivo >>  dni >> nombre >>edad >> sexo >> email) {
         	
-            usuarios.push_back(Usuario(dni, nombre, email));
+            usuarios.push_back(Usuario(dni,nombre,email,edad,sexo));
         }
         archivo.close();
     }
@@ -41,6 +43,10 @@ void Biblioteca::cargarUsuarios() {
 void Biblioteca::agregarLibro(int id, string titulo, string autor, int anio, int cantidad) {
     libros.push_back(Libro(id, titulo, autor, anio, cantidad));
     guardarLibrosEnArchivo();
+}
+void Biblioteca::agregarUsuario(string dni, string nombre, string email, int edad, char sexo){
+	usuarios.push_back(Usuario(dni, nombre,email,edad,sexo));
+	guardarUsuariosEnArchivo();
 }
 
 void Biblioteca::guardarLibrosEnArchivo() {
@@ -64,5 +70,24 @@ void Biblioteca::guardarLibrosEnArchivo() {
         cout << "Libros guardados correctamente." << endl;
     } else {
         cout << "No se pudo abrir el archivo libros.txt para guardar los datos." << endl;
+    }
+}
+void Biblioteca::guardarUsuariosEnArchivo(){
+	ofstream archivo("usuarios.txt", ios::app);  // Abrir en modo "append"
+
+    if (archivo.is_open()){
+        for (int i = 0; i < usuarios.size(); ++i) {
+        	 
+			archivo << usuarios[i].getDni() << "|"
+			        << usuarios[i].getNombre() << "|"
+			        << usuarios[i].getEdad() << "|"
+			        << usuarios[i].getSexo() << "|"
+			        << usuarios[i].getEmail() << "|"
+			        << endl;
+        }
+        archivo.close();
+        cout << "Usuario guardado correctamente." << endl;
+    } else {
+        cout << "No se pudo abrir el archivo usuarios.txt para guardar los datos." << endl;
     }
 }
