@@ -2,26 +2,25 @@
 #define USUARIO_H
 #include <string>
 #include <vector>
-using namespace std;
+#include "persona.h"
+#include "prestamos.h"
 
-class Usuario {
+//using namespace std;
+class Prestamos;
+class Usuario: public Persona {
 	private:
-    	string dni;
-    	string nombre;
-    	string email;
-    	vector <string> librosPedidos;
+    	std::vector <Prestamos*> prestamos;
 
 	public:
-    	Usuario(string dni, string nombre, string email);
+    	Usuario(string _dni,string _nombre,string _email,int _edad,char _sexo)/*:Persona(_dni,_nombre,_email,_edad,_sexo)*/;
     
-    	string DNI();
-    	string Nombre();
-    	string Email();
-
-    	void pedirLibro(string idLibro);
-    	bool tieneLibroPendiente(string idLibro);
+    	/*void pedirLibro(string idLibro);
     	void entregarLibro(string idLibro);
-    	vector<string> LibrosPedidos();
+    	
+		bool tieneLibroPendiente(string idLibro);*/
+    	
+    	std::vector<Prestamos*> getPrestamos();
+    	void mostrarDatos();
 };
 
 #endif

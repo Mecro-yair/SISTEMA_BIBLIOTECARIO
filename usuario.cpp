@@ -1,26 +1,12 @@
 #include "usuario.h"
+#include "prestamos.h"
 #include <algorithm>
 #include <vector>
-
-Usuario::Usuario(string _dni,string _nombre, string _email){
-	dni = _dni;
-	nombre = _nombre;
-	email = _email;
+using namespace std;
+Usuario::Usuario(string _dni,string _nombre,string _email,int _edad,char _sexo):Persona(_dni,_nombre,_email,_edad,_sexo){
 }
 
-string Usuario::DNI(){
-    return dni;
-}
-
-string Usuario::Nombre(){
-    return nombre;
-}
-
-string Usuario::Email(){
-    return email;
-}
-
-void Usuario::pedirLibro(string idLibro) {
+/*void Usuario::pedirLibro(string idLibro) {
     librosPedidos.push_back(idLibro);
 }
 
@@ -30,8 +16,11 @@ bool Usuario::tieneLibroPendiente(string idLibro){
 
 void Usuario::entregarLibro(string idLibro) {
     librosPedidos.erase(remove(librosPedidos.begin(), librosPedidos.end(), idLibro), librosPedidos.end());
-}
+}*/
 
-vector<string> Usuario::LibrosPedidos(){
-    return librosPedidos;
+vector<Prestamos*> Usuario::getPrestamos(){
+    return prestamos;
+}
+void Usuario::mostrarDatos(){
+	mostrarPersona();
 }

@@ -8,26 +8,40 @@ using namespace std;
 int main() {
     Biblioteca biblioteca;
 	SetConsoleOutputCP(CP_UTF8);
-    string nombre, email,dniUser;
-    cout << "Ingrese su DNI: "; 
-	cin >> dniUser;
+    string nombre, email,dni;
+    int edad;
+    char sexo;
+    int cen=0;
+    do{
+	    cout << "Ingrese su DNI: "; 
+		cin >> dni;
+	
+	    if(dni.size() != 8){
+	    	cout << "\nError. No es el tamaño de un DNI.";
+	    	cen=0;
+		}
+		for (char c : dni) {
+	    if (!isdigit(c)) {
+	        cout << "\nError: El DNI solo puede contener números.\n";
+	        cen=0;
+	        }
+	    }
+	    if(cen!=1){
+	    	cout << "Edad: ";cin>>edad;
+			cout << "Sexo[H/M]: ";cin>>sexo;
+			//cin.ignore();
+			cout << "Ingrese su nombre y apellido: "; cin.ignore(); getline(cin, nombre);
+			cout << "Ingrese su email: "; getline(cin, email);	
+			cout << "\nInformacion agregada correctamente.\n\n";
+			cout << "Presione enter para continuar con el menú.";
+			cin.get();
+			cen=1;
+		}
+		
+		
+	}while(cen!=1);
 
-    if(dniUser.size() != 8){
-    	cout << "\nError. No es el tamaño de un DNI.";
-    	return 0;
-	}
-	for (char c : dniUser) {
-    if (!isdigit(c)) {
-        cout << "\nError: El DNI solo puede contener números.\n";
-        return 0;
-        }
-    }
-
-	cout << "Ingrese su nombre y apellido: "; cin.ignore(); getline(cin, nombre);
-	cout << "Ingrese su email: "; getline(cin, email);	
-	cout << "\nInformacion agregada correctamente.\n\n";
-	cout << "Presione enter para continuar con el menú.";
-	cin.get();
+	biblioteca.agregarUsuario(dni,nombre,email,edad,sexo);
 	system("cls");
 
     int opcion;
