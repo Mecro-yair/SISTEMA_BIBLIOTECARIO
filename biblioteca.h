@@ -14,11 +14,11 @@ private:
 
 public:
     Biblioteca();
-    void agregarLibro(int id,string titulo, string autor, int anio, int cantidad);
-    void agregarUsuario(int dni, string nombre, string email);
+    void agregarLibro(int id,string titulo, string autor, int anio, int cantidad);//
+    void agregarUsuario(string dni, string nombre, string email, int edad, char sexo);//
     bool pedirLibro(string idLibro, string dniUsuario);
     void entregarLibro(int libroId, int usuarioId);
-    void mostrarLibrosPedidosNoEntregados();
+    void mostrarPrestamos();
     void guardarLibrosEnArchivo();
     void guardarUsuariosEnArchivo();
     void guardarPedidosEnArchivo();
