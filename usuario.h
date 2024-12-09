@@ -12,6 +12,9 @@ class Usuario: public Persona {
     	std::vector <Prestamos*> prestamos;
 
 	public:
+		Usuario(){
+			
+		}
     	Usuario(string _dni,string _nombre,string _email,int _edad,char _sexo)/*:Persona(_dni,_nombre,_email,_edad,_sexo)*/;
     
     	/*void pedirLibro(string idLibro);
