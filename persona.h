@@ -9,6 +9,9 @@ class Persona{
 	    int edad;
 		char sexo;
 	public:
+		Persona(){
+			
+		}
 		Persona(std::string dni,std::string nombre,std::string email,int edad,char sexo);
 		std::string getDni();
 		std::string getNombre();

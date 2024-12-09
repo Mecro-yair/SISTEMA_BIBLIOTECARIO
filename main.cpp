@@ -10,6 +10,8 @@ int main() {
 	
     Biblioteca biblioteca;
 	SetConsoleOutputCP(CP_UTF8);
+	//biblioteca.cargarLibros();
+	//biblioteca.cargarUsuarios();
 	int resp;
 	do{
 		imprimirLogo();
@@ -60,6 +62,29 @@ int main() {
 					
 				}while(cen!=1);
 				biblioteca.agregarUsuario(dni,nombre,email,edad,sexo);
+				Usuario usu=biblioteca.getUsuarios()[biblioteca.getUsuarios().size()-1];
+				int id;
+				cout<<"\nIngrese el ID del libro: ";cin>>id;
+				int id1=0;
+				int i = 0;
+				bool encontrado = false;
+				
+				while (i < biblioteca.getLibros().size() && !encontrado) {
+				    if (biblioteca.getLibros()[i].llamarId() == id) {
+				        id1 = biblioteca.getLibros()[i].llamarId(); 
+						encontrado=true;
+				    }
+				    i++;
+				}
+				int dias;
+				string Fpres=obtenerFechaHoraActual();
+				cout<<"\nIngrese la cantidad de dias de prestamos: ";cin>>dias;
+				string Fdev =obtenerFechaDevolucion(dias);
+				string dni1=usu.getDni();
+				
+				cout<<id1<<encontrado;
+				biblioteca.agregarPrestamo(dni1,id1,Fpres,Fdev);
+				
 				break;
 			}
 			case 2:{
@@ -78,6 +103,7 @@ int main() {
 			case 3:
 				break;
 			case 4:
+				biblioteca.mostrarLibros();
 				break;
 			case 0:{
 				cout<<"\nSaliendo...";
