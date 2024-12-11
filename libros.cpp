@@ -36,4 +36,9 @@ int Libro::llamarCantidad(){
 bool Libro::llamarEntregado() {
     return entregado;  
 }
+void Libro::mostrarLibro(){
+	cout<<"ID: "<<id <<"  ";
+	cout<<"Titulo: "<<titulo<<"   ";
+	cout<<"Autor: "<<autor;
+}
 

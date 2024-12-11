@@ -15,6 +15,7 @@ private:
     bool entregado;
 
 public:
+	Libro() : id(-1), titulo("") {}
     Libro(int id, string titulo, string autor, int anio, int cantidad);
     
 	int llamarId();
@@ -23,6 +24,7 @@ public:
     int llamarAnio();
     int llamarCantidad();
     bool llamarEntregado();
+    void mostrarLibro();
 };
 
 

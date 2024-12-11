@@ -29,7 +29,7 @@ char Persona::getSexo(){
 	return sexo;
 }
 void Persona::mostrarPersona(){
-	cout <<"Dni: "<<dni<<endl;
-	cout<<"Nombre: "<<nombre<<endl;
-	cout<<"Email: "<<email<<endl;
+	cout <<"Dni: "<<dni<<"  ";
+	cout<<"Nombre: "<<nombre<<"  ";
+	cout<<"Email: "<<email<<"  ";
 }
