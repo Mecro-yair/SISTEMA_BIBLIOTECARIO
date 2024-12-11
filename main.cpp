@@ -28,8 +28,10 @@ int main() {
 		cout<<"Digite su respuesta: ";cin>>resp;
 		
 		switch(resp){
-			case 1:{
-				string nombre, email,dni;
+			case 1:
+				registrarPrestamo1(biblioteca);
+				//lleve todo lo que estaba aqui a logo.cpp y lo declare en extrs.h
+				/*string nombre, email,dni;
     			int edad;
 			    char sexo;
 			    int cen=0;
@@ -83,10 +85,9 @@ int main() {
 				string dni1=usu.getDni();
 				
 				cout<<id1<<encontrado;
-				biblioteca.agregarPrestamo(dni1,id1,Fpres,Fdev);
-				
+				biblioteca.agregarPrestamo(dni1,id1,Fpres,Fdev);*/
 				break;
-			}
+			
 			case 2:{
 				cout << "AÑADIR UN NUEVO LIBRO\n\n";
                 int id, anio, cantidad;
@@ -105,12 +106,14 @@ int main() {
 			case 4:
 				biblioteca.mostrarLibros();
 				break;
-			case 0:{
-				cout<<"\nSaliendo...";
+			case 5:
+				biblioteca.mostrarUsuarios();
+			case 6:
 				break;
-			
-			}	
-			default:
+			case 7:
+				biblioteca.mostrarPrestamos();
+				break;	
+			default:	
                 cout << "Opción inválida." << endl;
                 break;
 		}
