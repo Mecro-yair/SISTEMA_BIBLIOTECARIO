@@ -22,12 +22,14 @@ public:
     bool pedirLibro(string idLibro, string dniUsuario);
     void entregarLibro(int libroId, int usuarioId);
     void mostrarPrestamos();
+    void mostrarUsuarios();
     void mostrarLibros();
     void guardarLibrosEnArchivo();
     void guardarUsuariosEnArchivo(string dni, string nombre, string email, int edad, char sexo);
     void guardarPrestamosEnArchivo(string  dniUsu,int idLibro,string FE, string FD);
     void cargarLibros();
     void cargarUsuarios();
+    void cargarPrestamos();
     vector<Usuario> getUsuarios();
     vector<Prestamos> getPrestamos();
     vector<Libro> getLibros();
