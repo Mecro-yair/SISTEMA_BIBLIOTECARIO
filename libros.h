@@ -24,6 +24,7 @@ public:
     int llamarAnio();
     int llamarCantidad();
     bool llamarEntregado();
+    void mostrarLibro();
 };
 
 
