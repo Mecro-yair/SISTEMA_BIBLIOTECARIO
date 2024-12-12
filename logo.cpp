@@ -5,33 +5,32 @@
 #include "biblioteca.h"
 #include "extras.h"
 using namespace std;
-// Cambia el color de la salida (compatible con terminales ANSI)
+
 void setColor(int code) {
     cout << "\033[" << code << "m";
 }
 
-// Restaura el color por defecto
+
 void resetColor() {
     cout << "\033[0m";
 }
 
-// Función para colorear el texto
+
 void imprimirColoreado(const char* texto[], int i) {
     
         for (int j = 0; texto[i][j] != '\0'; ++j) {
             if (texto[i][j] == '0') {
-                setColor(43); // Fondo café (amarillo oscuro)
+                setColor(43); // Fondo café 
                 cout << " "; // Espacio coloreado
             } else if (texto[i][j] == ' ') {
-                setColor(47); // Fondo blanco
+                setColor(47); 
                 cout << " "; // Espacio coloreado
             } else {
                 resetColor(); // Color normal
                 cout << texto[i][j];
             }
         }
-        resetColor(); // Restablecer el color al final de la línea
-        //std::cout << std::endl;
+        resetColor(); 
     
 }
 

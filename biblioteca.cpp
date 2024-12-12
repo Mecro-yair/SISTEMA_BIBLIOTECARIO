@@ -165,7 +165,7 @@ void Biblioteca::cargarPrestamos(){
 				i++;
 			}
             
-            // Crear un objeto Libro y agregarlo al vector
+           
             prestamos.push_back(Prestamos(&usuarios[i-1],&libros[j-1] ,FE,FD));
     }
 
@@ -173,13 +173,13 @@ void Biblioteca::cargarPrestamos(){
     cout << "Se cargaron " << prestamos.size() << " prestamos correctamente." << endl;
 }
 void Biblioteca::agregarLibro(int id, string titulo, string autor, int anio, int cantidad) {
-    // Crear el nuevo libro
+    
     Libro nuevoLibro(id, titulo, autor, anio, cantidad);
     
-    // Agregar el libro al vector
+   
     libros.push_back(nuevoLibro);
 
-    // Guardar el nuevo libro en el archivo
+   
     guardarLibrosEnArchivo(nuevoLibro);
 }
 void Biblioteca::agregarUsuario(string dni, string nombre, string email, int edad, char sexo){
@@ -207,12 +207,12 @@ void Biblioteca::agregarPrestamo(string  dniUsu,int idLibro,string FE, string FD
 		i++;
 	}
             
-    // Crear un objeto Libro y agregarlo al vector
+
     prestamos.push_back(Prestamos(&usuarios[i-1],&libros[j-1] ,FE,FD));
 	guardarPrestamosEnArchivo(dniUsu,idLibro,FE, FD);
 }
 
-// biblioteca.cpp
+
 void Biblioteca::guardarLibrosEnArchivo(Libro& libroNuevo) {
     ofstream archivo("libros.txt", ios::app);  
 
@@ -220,7 +220,7 @@ void Biblioteca::guardarLibrosEnArchivo(Libro& libroNuevo) {
         
         string entregado = (libroNuevo.llamarEntregado()) ? "1" : "0";
         
-        // Guardar solo el nuevo libro
+
         archivo << libroNuevo.llamarId() << "|"
                 << libroNuevo.llamarTitulo() << "|"
                 << libroNuevo.llamarAutor() << "|"

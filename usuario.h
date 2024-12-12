@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 #include "persona.h"
-//#include "prestamos.h"
 
-//using namespace std;
+
+using namespace std;
 class Prestamos;
 class Usuario: public Persona {
 	private:
@@ -15,13 +15,7 @@ class Usuario: public Persona {
 		Usuario(){
 			
 		}
-    	Usuario(std::string ,std::string ,std::string ,int ,char)/*:Persona(_dni,_nombre,_email,_edad,_sexo)*/;
-    
-    	/*void pedirLibro(string idLibro);
-    	void entregarLibro(string idLibro);
-    	
-		bool tieneLibroPendiente(string idLibro);*/
-    	
+    	Usuario(std::string ,std::string ,std::string ,int ,char);	
     	std::vector<Prestamos*> getPrestamos();
     	void mostrarDatos();
 };
