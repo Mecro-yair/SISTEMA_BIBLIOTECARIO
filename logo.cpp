@@ -89,7 +89,23 @@ void registrarPrestamo1(Biblioteca& biblioteca){
             cout << "Edad: "; cin >> edad;
             cout << "Sexo[H/M]: "; cin >> sexo;
             cout << "Ingrese su nombre y apellido: "; cin.ignore(); getline(cin, nombre);
-            cout << "Ingrese su email: "; getline(cin, email);  
+			do {
+        	cout << "Ingrese su email: ";
+        	getline(cin, email);  
+        	if (email.find('@') != string::npos && email.find('@') != 0 && email.find('@') != email.length() - 1) {
+            	string dominio = email.substr(email.find('@') + 1); // Obtener parte después del '@'
+            if (dominio == "gmail.com" || dominio == "hotmail.com" || dominio == "outlook.com") {
+                cout << "El correo electrónico es válido." << endl;
+                break;  
+            } else {
+                cout << "El correo electrónico no es válido. El dominio debe ser gmail.com, hotmail.com o outlook.com." << endl;
+            }
+			} else {
+            cout << "El correo electrónico no es válido. Asegúrese de que contenga '@' y no esté al principio ni al final." << endl;
+            system("PAUSE");
+        }
+
+    } while (true);
             cout << "\nInformacion agregada correctamente.\n\n";
             cout << "Presione enter para continuar con el menú.";
             cin.get();
@@ -136,5 +152,6 @@ void registrarPrestamo1(Biblioteca& biblioteca){
     string dni1 = usu.getDni();
     biblioteca.agregarPrestamo(dni1, id1, Fpres, Fdev);
 }
+
 
 
