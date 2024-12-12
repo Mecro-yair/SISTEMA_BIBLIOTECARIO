@@ -7,6 +7,7 @@
 #include "libros.h"
 #include "biblioteca.h"
 #include "extras.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -63,15 +64,23 @@ void mostrarAdministradores() {
     }
 }
 
+void SetColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
 
 int main() {
     Biblioteca biblioteca;
     SetConsoleOutputCP(CP_UTF8);
 
     string nombre, contrasena;
+    SetColor(2);
     cout << "Ingrese su nombre de administrador: ";
+    SetColor(1);
     cin >> nombre;
+    SetColor(2);
     cout << "Ingrese su contraseña: ";
+    SetColor(1);
     cin >> contrasena;
 
     if (!esAdministrador(nombre, contrasena)) {
@@ -82,7 +91,9 @@ int main() {
     int resp;
     do {
         imprimirLogo();
+        SetColor(4);
         cout << "MENU: " << endl;
+        SetColor(7);
         cout << "1) Agregar un préstamo." << endl;
         cout << "2) Agregar un libro." << endl;
         cout << "3) Quitar un libro." << endl;
@@ -92,50 +103,59 @@ int main() {
         cout << "7) Historial de préstamos." << endl;
         cout << "0) Salir." << endl;
         cout << "Digite su respuesta: ";
+        SetColor(2);
         cin >> resp;
-
+		SetColor(7);
         switch (resp) {
             case 1:
+            	system("cls");
                 registrarPrestamo1(biblioteca);
                 break;
 
             case 2: {
+            	system("cls");
                 cout << "AÑADIR UN NUEVO LIBRO\n\n";
                 int id, anio, cantidad;
                 string titulo, autor;
-                cout << "ID del libro: "; cin >> id;
-                cout << "Título del libro: "; cin.ignore(); getline(cin, titulo);
-                cout << "Autor: "; getline(cin, autor);
-                cout << "Año de publicación: "; cin >> anio;
+                cout << "ID del libro: "; SetColor(2); cin >> id;SetColor(7);
+                cout << "Título del libro: "; cin.ignore();SetColor(2); getline(cin, titulo);SetColor(7);
+                cout << "Autor: "; SetColor(2);getline(cin, autor);SetColor(7);
+                cout << "Año de publicación: ";SetColor(2); cin >> anio;SetColor(7);
                 cout << "Cantidad: "; cin >> cantidad;
                 biblioteca.agregarLibro(id, titulo, autor, anio, cantidad);
                 break;
             }
 
             case 3:
+            	system("cls");
                 cout << "Eliminar un libro por ID\n\n";
                 int id;
-                cout << "ID del libro a eliminar: "; cin >> id;
+                cout << "ID del libro a eliminar: "; SetColor(2); cin >> id;SetColor(7);
                 biblioteca.quitarLibro(id);
                 break;
 
             case 4:
+            	system("cls");
                 biblioteca.mostrarLibros();
                 break;
 
             case 5:
+            	system("cls");
                 biblioteca.mostrarUsuarios();
                 break;
 
             case 6:
+            	system("cls");
                 mostrarAdministradores();  
                 break;
 
             case 7:
+            	system("cls");
                 biblioteca.mostrarPrestamos();
                 break;
 
             default:
+            	system("cls");
                 cout << "Opción inválida." << endl;
                 break;
         }
