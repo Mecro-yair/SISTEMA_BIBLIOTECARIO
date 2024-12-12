@@ -25,6 +25,7 @@ public:
     int llamarCantidad();
     bool llamarEntregado();
     void mostrarLibro();
+    void reducirCantidad();
 };
 
 

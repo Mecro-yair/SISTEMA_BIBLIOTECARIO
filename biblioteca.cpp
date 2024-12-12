@@ -187,6 +187,7 @@ void Biblioteca::agregarUsuario(string dni, string nombre, string email, int eda
 	guardarUsuariosEnArchivo(dni, nombre, email,edad,sexo);
 }
 void Biblioteca::agregarPrestamo(string  dniUsu,int idLibro,string FE, string FD){
+	
 	bool cen=false;
 	Usuario usu;
 	Libro lib;
@@ -198,7 +199,13 @@ void Biblioteca::agregarPrestamo(string  dniUsu,int idLibro,string FE, string FD
 		}
 		j++;
 	}
+	if(libros[j-1].llamarCantidad()<=0){
+		cout<<"Ya no quedan ejemplares de este libro.\n";
+		return;
+	}
+	
 	int i=0;
+	
     c=false;
     while(i<usuarios.size()&&c!=true){
         if(usuarios[i].getDni()==dniUsu){
@@ -207,9 +214,10 @@ void Biblioteca::agregarPrestamo(string  dniUsu,int idLibro,string FE, string FD
 		i++;
 	}
             
-
+	libros[j-1].reducirCantidad();
     prestamos.push_back(Prestamos(&usuarios[i-1],&libros[j-1] ,FE,FD));
 	guardarPrestamosEnArchivo(dniUsu,idLibro,FE, FD);
+	
 }
 
 
@@ -267,7 +275,7 @@ void Biblioteca::guardarPrestamosEnArchivo(string  dniUsu,int idLibro,string FE,
 			        << endl;
         
         archivo.close();
-        cout << "Prestamo guardado correctamente." << endl;
+        cout << "Prestamo de libro guardado correctamente." << endl;
         
     } else {
         cout << "No se pudo abrir el archivo usuarios.txt para guardar los datos." << endl;
@@ -364,4 +372,28 @@ void Biblioteca::quitarLibro(int id) {
         }
     }
     cout << "No se encontró un libro con el ID proporcionado." << endl;
+}
+
+void Biblioteca::guardarLibrosEnArchivo() {
+    ofstream archivo("libros.txt");
+    if (!archivo.is_open()) {
+        cout << "No se pudo abrir el archivo para guardar." << endl;
+        return;
+    }
+
+    int i = 0;
+    while (i < libros.size()) {
+        
+        archivo << libros[i].llamarId() << "|"
+                << libros[i].llamarTitulo() << "|"
+                << libros[i].llamarAutor() << "|"
+                << libros[i].llamarAnio() << "|"
+                << libros[i].llamarCantidad() << "|"
+                << libros[i].llamarEntregado()<<"|" 
+                << endl;
+        i++;
+    }
+
+    archivo.close();
+    cout << "Se guardaron " << libros.size() << " libros en el archivo correctamente." << endl;
 }

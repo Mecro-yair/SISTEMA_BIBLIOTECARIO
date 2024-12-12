@@ -41,4 +41,6 @@ void Libro::mostrarLibro(){
 	cout<<"Titulo: "<<titulo<<"   ";
 	cout<<"Autor: "<<autor;
 }
-
+void Libro::reducirCantidad(){
+	cantidad=cantidad-1;
+}

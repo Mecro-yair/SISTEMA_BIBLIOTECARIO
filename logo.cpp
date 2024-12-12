@@ -96,26 +96,52 @@ void registrarPrestamo1(Biblioteca& biblioteca){
 				}while(cen!=1);
 				biblioteca.agregarUsuario(dni,nombre,email,edad,sexo);
 				Usuario usu=biblioteca.getUsuarios()[biblioteca.getUsuarios().size()-1];
-				int id;
-				cout<<"\nIngrese el ID del libro: ";cin>>id;
-				int id1=0;
-				int i = 0;
-				bool encontrado = false;
-				
-				while (i < biblioteca.getLibros().size() && !encontrado) {
-				    if (biblioteca.getLibros()[i].llamarId() == id) {
-				        id1 = biblioteca.getLibros()[i].llamarId(); 
-						encontrado=true;
-				    }
-				    i++;
-				}
-				int dias;
-				string Fpres=obtenerFechaHoraActual();
-				cout<<"\nIngrese la cantidad de dias de prestamos: ";cin>>dias;
-				string Fdev =obtenerFechaDevolucion(dias);
-				string dni1=usu.getDni();
-				
-				cout<<id1<<encontrado;
-				biblioteca.agregarPrestamo(dni1,id1,Fpres,Fdev);
+				char x;
+				do {
+		    int id;
+		    cout << "\nIngrese el ID del libro: ";
+		    cin >> id;
+		    int id1 = 0;
+		    int i = 0;
+		    bool encontrado = false;
+		
+		    // Buscar el libro por ID
+		    while (i < biblioteca.getLibros().size() && !encontrado) {
+		        if (biblioteca.getLibros()[i].llamarId() == id) {
+		            id1 = biblioteca.getLibros()[i].llamarId();
+		            encontrado = true;
+		        }
+		        i++;
+		    }
+		
+		    if (!encontrado) {
+		        cout << "El libro con el ID ingresado no existe.\n";
+		        continue; // Repite el bucle si no se encuentra el libro
+		    }
+		
+		    
+		    int dias;
+		    string Fpres = obtenerFechaHoraActual();
+		    cout << "\nIngrese la cantidad de días de préstamo: ";
+		    cin >> dias;
+		    string Fdev = obtenerFechaDevolucion(dias);
+		    string dni1 = usu.getDni();
+		
+		    
+		    biblioteca.agregarPrestamo(dni1, id1, Fpres, Fdev);
+		
+		    // Solicitar si desea agregar otro préstamo
+		    bool aux = false;
+		    while (!aux) {
+		        cout << "¿Deseas agregar otro préstamo? [S/N]: ";
+		        cin >> x;
+		        if (x == 'S' || x == 's' || x == 'N' || x == 'n') {
+		            aux = true;
+		        } else {
+		            cout << "\nEntrada inválida. Intente de nuevo.\n";
+		        }
+		    }
+		} while (x != 'N' && x != 'n');
+
 }
 

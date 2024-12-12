@@ -11,12 +11,14 @@ class Prestamos{
 	Libro* libro;
 	std::string FechaEntrega;
 	std::string FechaDevolucion;
+	bool activo;
 	public:
 		Prestamos(Usuario* usu,Libro* lib,std::string FE,std::string FD){
 			usuario=usu;
 			libro=lib;
 			FechaEntrega=FE;
 			FechaDevolucion=FD;
+			activo=true;
 		}
 		std::string getFechaEntrega();
 		std::string getFechaDevolucion();

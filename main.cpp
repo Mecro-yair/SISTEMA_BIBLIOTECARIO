@@ -101,6 +101,7 @@ int main() {
         cout << "5) Lista usuarios registrados." << endl;
         cout << "6) Lista administradores." << endl;
         cout << "7) Historial de préstamos." << endl;
+        cout << "8) Devolver un libro."<<endl;
         cout << "0) Salir." << endl;
         cout << "Digite su respuesta: ";
         SetColor(2);
@@ -153,7 +154,10 @@ int main() {
             	system("cls");
                 biblioteca.mostrarPrestamos();
                 break;
-
+            case 8:
+            	system("cls");
+            	//biblioteca.devolverLibro();
+				break;
             default:
             	system("cls");
                 cout << "Opción inválida." << endl;
@@ -165,6 +169,6 @@ int main() {
         system("cls");
 
     } while (resp != 0);
-
+	biblioteca.guardarLibrosEnArchivo();
     return 0;
 }

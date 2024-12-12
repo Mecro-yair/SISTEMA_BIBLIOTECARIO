@@ -9,7 +9,7 @@ using namespace std;
 class Prestamos;
 class Usuario: public Persona {
 	private:
-    	std::vector <Prestamos*> prestamos;
+    	//std::vector <Prestamos*> prestamos;
 
 	public:
 		Usuario(){

@@ -34,6 +34,7 @@ public:
     vector<Usuario> getUsuarios();
     vector<Prestamos> getPrestamos();
     vector<Libro> getLibros();
+    void guardarLibrosEnArchivo();
     //void cargarPedidos();
 
 };
