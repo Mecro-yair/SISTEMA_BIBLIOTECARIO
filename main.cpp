@@ -158,7 +158,7 @@ int main() {
                 cout << "Opción inválida." << endl;
                 break;
         }
-
+		system("pause");
         system("cls");
         cout << "Gracias por usar el programa";
 
