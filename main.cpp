@@ -155,14 +155,12 @@ int main() {
                 break;
 
             default:
-            	system("cls");
                 cout << "Opción inválida." << endl;
                 break;
         }
 
-        cout << endl << endl;
-        system("pause");
         system("cls");
+        cout << "Gracias por usar el programa";
 
     } while (resp != 0);
 

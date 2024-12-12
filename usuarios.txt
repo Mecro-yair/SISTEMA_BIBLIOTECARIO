@@ -1,15 +1,15 @@
-75615124|ronald choque|15|H|humbolt|
-78495612|emilia|45|M|gusmaz|
-12345678|adfs|12|H|dsf|
-98765432|Facundo Alvarez|12|H|hugsd|
-75395145|bebe|1|M|unjhg|
-74568923|macho|2|H|adsfd|
-45789623|adfs|45|H|adf|
-45789623|dfsdf|45|H|ds|
-45123698|asdvasc|46|H|asfadvs|
-45789621|adv dff|4|H|sdvcd|
-12459638|pancrasio|3|H|locosssss|
-45623189|maton|4|M|culon|
-71726053|calla perra|16|M|dlq|
-71726053|Danny lyque|19|H|dluquepafsdas|
-71726053|gfdg|18|H|dkuquesad|
+75615124|Ronald Choque|15|H|ronald.choque@gmail.com|
+78495612|Emilia Fernández|45|M|emilia.fernandez@gmail.com|
+12345678|Adrián Sánchez|12|H|adrian.sanchez@gmail.com|
+98765432|Facundo Alvarez|12|H|facundo.alvarez@gmail.com|
+75395145|Bebe Martínez|1|M|bebe.martinez@gmail.com|
+74568923|Carlos López|2|H|carlos.lopez@gmail.com|
+45789623|David Pérez|45|H|david.perez@gmail.com|
+45789623|Diana Torres|45|H|diana.torres@gmail.com|
+45123698|Asdrúbal Vasquez|46|H|asdrubal.vasquez@gmail.com|
+45789621|Alejandro Díaz|4|H|alejandro.diaz@gmail.com|
+12459638|Pancracio González|3|H|pancracio.gonzalez@gmail.com|
+45623189|Wesley Johnson|4|M|wesley.johnson@gmail.com|
+71726053|Oscar Ruiz|16|M|oscar.ruiz@gmail.com|
+71726053|Danny Liñán|19|H|danny.linan@gmail.com|
+71726053|Gabriela Díaz|18|H|gabriela.diaz@gmail.com|
