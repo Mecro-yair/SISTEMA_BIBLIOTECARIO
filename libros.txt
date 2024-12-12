@@ -22,5 +22,5 @@
 22|Rayuela|Julio Cortázar|1963|4|1| 
 23|La tregua|Mario Benedetti|1960|3|1| 
 24|La colmena|Camilo José Cela|1951|4|1|1|Don Quijote de la Mancha|Miguel de Cervantes|1605|5|1|
-25|AEA|pepito|2000|9|1|
-15122|121|2222|12|2|1|
+25|Cien años de soledad|Gabriel García Márquez|1967|5|1|
+26|El túnel|Ernesto Sabato|1948|4|1|
