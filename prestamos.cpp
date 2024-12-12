@@ -15,3 +15,7 @@ void Prestamos::mostrarPrestamo(){
 	cout<<"Fecha de Entrega: "<<FechaEntrega<<endl;
 	cout<<"Fecha de Devolución: "<<FechaDevolucion;
 }
+
+Libro* Prestamos::getLibro() {
+    return libro;  
+}

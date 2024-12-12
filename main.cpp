@@ -102,6 +102,10 @@ int main() {
 			}
 				
 			case 3:
+				cout << "Eliminar un Libro por id\n\n";
+				int id;
+				cout << "ID del libro a Eliminar: ";cin >> id;
+				biblioteca.quitarLibro(id);
 				break;
 			case 4:
 				biblioteca.mostrarLibros();
