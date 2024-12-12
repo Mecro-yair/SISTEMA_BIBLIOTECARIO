@@ -102,6 +102,10 @@ int main() {
 			}
 				
 			case 3:
+				int idLibro;
+   				cout << "Ingrese el ID del libro que desea eliminar: ";
+    			cin >> idLibro;
+    			biblioteca.eliminarLibro(idLibro);
 				break;
 			case 4:
 				biblioteca.mostrarLibros();
