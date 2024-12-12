@@ -20,6 +20,7 @@ class Prestamos{
 		}
 		std::string getFechaEntrega();
 		std::string getFechaDevolucion();
+		Libro* getLibro();
 		void mostrarPrestamo();
 };
 #endif
