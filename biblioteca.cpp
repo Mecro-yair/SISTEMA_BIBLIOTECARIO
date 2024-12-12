@@ -322,3 +322,50 @@ void Biblioteca::mostrarPrestamos(){
 		cout<<endl;
 	}
 }
+#include "biblioteca.h"
+#include "libros.h"
+#include <fstream>
+#include <sstream>
+
+void Biblioteca::eliminarLibro(int idLibro) {
+    // Eliminar del vector
+    for (int i = 0; i < libros.size(); i++) {
+        if (libros[i].llamarId() == idLibro) {
+            libros.erase(libros.begin() + i);
+            break;
+        }
+    }
+
+    // Eliminar del archivo de texto
+    ifstream archivo("libros.txt");
+    ofstream archivoTemporal("librosTemporal.txt");
+    string linea;
+
+    bool encontrado = false;
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        int id;
+        ss >> id;
+        if (id != idLibro) {
+            archivoTemporal << linea << endl;
+        } else {
+            encontrado = true;
+        }
+    }
+
+    archivo.close();
+    archivoTemporal.close();
+
+    if (encontrado) {
+        remove("libros.txt");
+        rename("librosTemporal.txt", "libros.txt");
+    } else {
+        remove("librosTemporal.txt");
+    }
+
+    if (encontrado) {
+        cout << "Libro eliminado con éxito." << endl;
+    } else {
+        cout << "Libro no encontrado." << endl;
+    }
+}
