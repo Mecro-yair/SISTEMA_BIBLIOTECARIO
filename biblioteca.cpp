@@ -322,50 +322,41 @@ void Biblioteca::mostrarPrestamos(){
 		cout<<endl;
 	}
 }
-#include "biblioteca.h"
-#include "libros.h"
-#include <fstream>
-#include <sstream>
-
-void Biblioteca::eliminarLibro(int idLibro) {
-    // Eliminar del vector
-    for (int i = 0; i < libros.size(); i++) {
-        if (libros[i].llamarId() == idLibro) {
+void Biblioteca::quitarLibro(int id) {
+    for (size_t i = 0; i < libros.size(); i++) {
+        if (libros[i].llamarId() == id) {
+            for (size_t j = 0; j < prestamos.size(); j++) {
+                if (prestamos[j].getLibro()->llamarId() == id) {
+                    cout << "El libro no se puede eliminar porque está asociado a un préstamo." << endl;
+                    return;
+                }
+            }
             libros.erase(libros.begin() + i);
-            break;
+            ofstream archivo("libros.txt");
+            if (archivo.is_open()) {
+                for (size_t k = 0; k < libros.size(); k++) {
+                    archivo << libros[k].llamarId() << "|";
+                    archivo << libros[k].llamarTitulo() << "|";
+                    archivo << libros[k].llamarAutor() << "|";
+                    archivo << libros[k].llamarAnio() << "|";
+                    archivo << libros[k].llamarCantidad() << "|";
+                    bool entregado = libros[k].llamarEntregado();
+                    string estadoEntregado;
+                    if (entregado) {
+                        estadoEntregado = "1";
+                    } else {
+                        estadoEntregado = "0";
+                    }
+                    archivo << estadoEntregado << "|";
+                    archivo << endl; 
+                }
+                archivo.close();
+                cout << "El libro fue quitado." << endl;
+            } else {
+                cout << "No se pudo actualizar el archivo libros.txt." << endl;
+            }
+            return;
         }
     }
-
-    // Eliminar del archivo de texto
-    ifstream archivo("libros.txt");
-    ofstream archivoTemporal("librosTemporal.txt");
-    string linea;
-
-    bool encontrado = false;
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-        int id;
-        ss >> id;
-        if (id != idLibro) {
-            archivoTemporal << linea << endl;
-        } else {
-            encontrado = true;
-        }
-    }
-
-    archivo.close();
-    archivoTemporal.close();
-
-    if (encontrado) {
-        remove("libros.txt");
-        rename("librosTemporal.txt", "libros.txt");
-    } else {
-        remove("librosTemporal.txt");
-    }
-
-    if (encontrado) {
-        cout << "Libro eliminado con éxito." << endl;
-    } else {
-        cout << "Libro no encontrado." << endl;
-    }
+    cout << "No se encontró un libro con el ID proporcionado." << endl;
 }
