@@ -16,7 +16,7 @@ private:
 
 public:
     Biblioteca();
-    void eliminarLibro(int idLibro);
+    void quitarLibro(int id);
     void agregarLibro(int id,string titulo, string autor, int anio, int cantidad);//
     void agregarUsuario(string dni, string nombre, string email, int edad, char sexo);
 	void agregarPrestamo(string  dniUsu,int idLibro,string FE, string FD);//
