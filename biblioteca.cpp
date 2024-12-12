@@ -21,47 +21,46 @@ void Biblioteca::cargarLibros() {
     if (archivo.is_open()) {
        
 		string linea;
-        // Leer línea por línea
+        
         while (getline(archivo, linea)) {
         	size_t pos=0;
         	int id, anio, cantidad, entregado;
         	string titulo, autor, dato;
             
             
-            // Leer el ID
+            
             pos = linea.find("|");
             dato=linea.substr(0,pos);
             id=stoi(dato);
             linea.erase(0,pos+1);
 
-            // Leer el título
+            
             pos = linea.find("|");
             titulo= linea.substr(0,pos);
             linea.erase(0,pos+1);
             
 
-            // Leer el autor
+            
             pos=linea.find("|");
             autor=linea.substr(0,pos);
             linea.erase(0,pos+1);
 
-            // Leer el año
+            
             pos=linea.find("|");
             dato= linea.substr(0,pos);
             anio=stoi(dato);
             linea.erase(0,pos+1);
 
-            // Leer la cantidad
+       
             pos=linea.find("|");
             dato=linea.substr(0,pos);
             cantidad=stoi(dato);
             
-            // Leer el entregado (asumiendo que se almacena como 1 o 0)
+            
             pos=linea.find("|");
             dato=linea.substr(0,pos);
-            entregado = stoi(dato); // Convierte de string a int
+            entregado = stoi(dato); 
             bool entregadoBool = (entregado == 1);  // 1 es verdadero, 0 es falso
-            // Crear el objeto libro y agregarlo al vector
             libros.push_back(Libro(id, titulo, autor, anio, cantidad));
         }
 
@@ -78,7 +77,7 @@ void Biblioteca::cargarUsuarios() {
     
     if (archivo.is_open()) {
         
-        // Leer línea por línea
+     
         string linea;
         while (getline(archivo, linea)) {
         	size_t pos=0;
@@ -118,7 +117,7 @@ void Biblioteca::cargarUsuarios() {
     
 } 
 void Biblioteca::cargarPrestamos(){
-	ifstream archivo("prestamos.txt"); // Abrir el archivo
+	ifstream archivo("prestamos.txt"); 
     if (!archivo.is_open()) {
         cout << "No se pudo abrir el archivo." << endl;
         return;
@@ -129,16 +128,16 @@ void Biblioteca::cargarPrestamos(){
         size_t pos = 0;
         string FE,FD,dato,dni;
         int id;
-            // Extraer dni
+            
             pos = linea.find("|");
             dni = linea.substr(0, pos);
-            linea.erase(0, pos + 1); // Eliminar el autor y la coma
+            linea.erase(0, pos + 1); 
 
             // Extraer id
             pos = linea.find("|");
             dato = linea.substr(0, pos);
             id=stoi(dato);
-            linea.erase(0, pos + 1); // Eliminar el año y la coma
+            linea.erase(0, pos + 1); 
 
             // Extraer fechA DE entrega
             pos = linea.find("|"); 
@@ -174,8 +173,14 @@ void Biblioteca::cargarPrestamos(){
     cout << "Se cargaron " << prestamos.size() << " prestamos correctamente." << endl;
 }
 void Biblioteca::agregarLibro(int id, string titulo, string autor, int anio, int cantidad) {
-    libros.push_back(Libro(id, titulo, autor, anio, cantidad));
-    guardarLibrosEnArchivo();
+    // Crear el nuevo libro
+    Libro nuevoLibro(id, titulo, autor, anio, cantidad);
+    
+    // Agregar el libro al vector
+    libros.push_back(nuevoLibro);
+
+    // Guardar el nuevo libro en el archivo
+    guardarLibrosEnArchivo(nuevoLibro);
 }
 void Biblioteca::agregarUsuario(string dni, string nombre, string email, int edad, char sexo){
 	usuarios.push_back(Usuario(dni, nombre,email,edad,sexo));
@@ -207,29 +212,29 @@ void Biblioteca::agregarPrestamo(string  dniUsu,int idLibro,string FE, string FD
 	guardarPrestamosEnArchivo(dniUsu,idLibro,FE, FD);
 }
 
-void Biblioteca::guardarLibrosEnArchivo() {
-    ofstream archivo("libros.txt", ios::app);  // Abrir en modo "append"
+// biblioteca.cpp
+void Biblioteca::guardarLibrosEnArchivo(Libro& libroNuevo) {
+    ofstream archivo("libros.txt", ios::app);  
 
-    if (archivo.is_open()){
-        for (int i = 0; i < libros.size(); ++i) {
-        	string entregado = "0";  
+    if (archivo.is_open()) {
+        
+        string entregado = (libroNuevo.llamarEntregado()) ? "1" : "0";
+        
+        // Guardar solo el nuevo libro
+        archivo << libroNuevo.llamarId() << "|"
+                << libroNuevo.llamarTitulo() << "|"
+                << libroNuevo.llamarAutor() << "|"
+                << libroNuevo.llamarAnio() << "|"
+                << libroNuevo.llamarCantidad() << "|"
+                << entregado << "|" << endl;
 
-			if (libros[i].llamarEntregado()) {
-			    entregado = "1";  
-			}
-			archivo << libros[i].llamarId() << "|"
-			        << libros[i].llamarTitulo() << "|"
-			        << libros[i].llamarAutor() << "|"
-			        << libros[i].llamarAnio() << "|"
-			        << libros[i].llamarCantidad() << "|"
-			        << entregado<<"|" << endl;
-        }
         archivo.close();
-        cout << "Libros guardados correctamente." << endl;
+        cout << "Nuevo libro agregado correctamente al archivo." << endl;
     } else {
-        cout << "No se pudo abrir el archivo libros.txt para guardar los datos." << endl;
+        cout << "No se pudo abrir el archivo libros.txt para agregar el nuevo libro." << endl;
     }
 }
+
 void Biblioteca::guardarUsuariosEnArchivo(string dni, string nombre, string email, int edad, char sexo){
 	ofstream archivo("usuarios.txt", ios::app);  // Abrir en modo "append"
 
@@ -250,7 +255,7 @@ void Biblioteca::guardarUsuariosEnArchivo(string dni, string nombre, string emai
     }
 }
 void Biblioteca::guardarPrestamosEnArchivo(string  dniUsu,int idLibro,string FE, string FD){
-	ofstream archivo("prestamos.txt", ios::app);  // Abrir en modo "append"
+	ofstream archivo("prestamos.txt", ios::app);  
 
     if (archivo.is_open()){
         
@@ -280,13 +285,13 @@ vector<Libro> Biblioteca::getLibros(){
 	return libros;
 }
 void Biblioteca::mostrarLibros() {
-    // Verifica si el vector de libros está vacío
+    
     if (libros.empty()) {
         cout << "No hay libros disponibles en la biblioteca." << endl;
         return;
     }
 
-    // Muestra los detalles de cada libro en el vector
+    
     for (Libro libro : libros) {
         cout << "ID: " << libro.llamarId() << endl;
         cout << "Título: " << libro.llamarTitulo() << endl;

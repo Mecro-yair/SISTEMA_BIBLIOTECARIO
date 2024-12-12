@@ -25,7 +25,7 @@ public:
     void mostrarPrestamos();
     void mostrarUsuarios();
     void mostrarLibros();
-    void guardarLibrosEnArchivo();
+	void guardarLibrosEnArchivo(Libro& libroNuevo);
     void guardarUsuariosEnArchivo(string dni, string nombre, string email, int edad, char sexo);
     void guardarPrestamosEnArchivo(string  dniUsu,int idLibro,string FE, string FD);
     void cargarLibros();
