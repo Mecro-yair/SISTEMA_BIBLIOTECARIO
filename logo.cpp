@@ -61,61 +61,80 @@ void imprimirLogo() {
     }
     //std::cout<<"\t\t\t\t\t----------------------------------------------------------------------------"<<std::endl;*/
 }
+#include <limits>  // Para std::numeric_limits
+
 void registrarPrestamo1(Biblioteca& biblioteca){
-	string nombre, email,dni;
-    			int edad;
-			    char sexo;
-			    int cen=0;
-			    do{
-				    cout << "Ingrese su DNI: "; 
-					cin >> dni;
-				
-				    if(dni.size() != 8){
-				    	cout << "\nError. No es el tamaño de un DNI.";
-				    	cen=0;
-					}
-					for (char c : dni) {
-				    if (!isdigit(c)) {
-				        cout << "\nError: El DNI solo puede contener números.\n";
-				        cen=0;
-				        }
-				    }
-				    if(cen!=1){
-				    	cout << "Edad: ";cin>>edad;
-						cout << "Sexo[H/M]: ";cin>>sexo;
-						//cin.ignore();
-						cout << "Ingrese su nombre y apellido: "; cin.ignore(); getline(cin, nombre);
-						cout << "Ingrese su email: "; getline(cin, email);	
-						cout << "\nInformacion agregada correctamente.\n\n";
-						cout << "Presione enter para continuar con el menú.";
-						cin.get();
-						cen=1;
-					}
-					
-					
-				}while(cen!=1);
-				biblioteca.agregarUsuario(dni,nombre,email,edad,sexo);
-				Usuario usu=biblioteca.getUsuarios()[biblioteca.getUsuarios().size()-1];
-				int id;
-				cout<<"\nIngrese el ID del libro: ";cin>>id;
-				int id1=0;
-				int i = 0;
-				bool encontrado = false;
-				
-				while (i < biblioteca.getLibros().size() && !encontrado) {
-				    if (biblioteca.getLibros()[i].llamarId() == id) {
-				        id1 = biblioteca.getLibros()[i].llamarId(); 
-						encontrado=true;
-				    }
-				    i++;
-				}
-				int dias;
-				string Fpres=obtenerFechaHoraActual();
-				cout<<"\nIngrese la cantidad de dias de prestamos: ";cin>>dias;
-				string Fdev =obtenerFechaDevolucion(dias);
-				string dni1=usu.getDni();
-				
-				cout<<id1<<encontrado;
-				biblioteca.agregarPrestamo(dni1,id1,Fpres,Fdev);
+    string nombre, email, dni;
+    int edad;
+    char sexo;
+    int cen = 0;
+
+    do {
+        cout << "Ingrese su DNI: "; 
+        cin >> dni;
+        
+        if (dni.size() != 8) {
+            cout << "\nError. No es el tamaño de un DNI.";
+            cen = 0;
+        }
+
+        for (char c : dni) {
+            if (!isdigit(c)) {
+                cout << "\nError: El DNI solo puede contener números.\n";
+                cen = 0;
+            }
+        }
+
+        if (cen != 1) {
+            cout << "Edad: "; cin >> edad;
+            cout << "Sexo[H/M]: "; cin >> sexo;
+            cout << "Ingrese su nombre y apellido: "; cin.ignore(); getline(cin, nombre);
+            cout << "Ingrese su email: "; getline(cin, email);  
+            cout << "\nInformacion agregada correctamente.\n\n";
+            cout << "Presione enter para continuar con el menú.";
+            cin.get();
+            cen = 1;
+        }
+
+    } while (cen != 1);
+
+    biblioteca.agregarUsuario(dni, nombre, email, edad, sexo);
+    Usuario usu = biblioteca.getUsuarios()[biblioteca.getUsuarios().size() - 1];
+    
+    int id;
+    cout << "\nIngrese el ID del libro: "; cin >> id;
+
+    int id1 = 0;
+    int i = 0;
+    bool encontrado = false;
+
+    while (i < biblioteca.getLibros().size() && !encontrado) {
+        if (biblioteca.getLibros()[i].llamarId() == id) {
+            id1 = biblioteca.getLibros()[i].llamarId(); 
+            encontrado = true;
+        }
+        i++;
+    }
+
+    int dias;
+    string Fpres = obtenerFechaHoraActual();
+
+    cout << "\nIngrese la cantidad de días de préstamo: ";
+    while (true) {
+        cin >> dias;
+
+        if (cin.fail() || dias <= 0) {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Por favor, ingrese un número entero positivo para los días de préstamo: ";
+        } else {
+            break; 
+        }
+    }
+
+    string Fdev = obtenerFechaDevolucion(dias);
+    string dni1 = usu.getDni();
+    biblioteca.agregarPrestamo(dni1, id1, Fpres, Fdev);
 }
+
 
