@@ -1,4 +1,5 @@
-Sistema de Biblioteca
+Sistema de Biblioteca:
+
 Este proyecto es un sistema de gestión de biblioteca implementado en C++ que permite registrar, gestionar y realizar préstamos de libros a usuarios. El sistema incluye funcionalidades para añadir nuevos libros, visualizar la lista de libros, realizar préstamos y devolver libros. Además, el sistema mantiene un registro de los libros prestados y sus fechas de devolución.
 
 Funcionalidades
